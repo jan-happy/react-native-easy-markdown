@@ -133,13 +133,13 @@ class Markdown extends Component {
 
         if (node.props) {
             return (
-                <Text key={key} style={style}>
+                <Text key={key} style={style} textBreakStrategy={'simple'}>
                     {this.renderNodes(node.props.children, key, extras)}
                 </Text>
             );
         } else {
             return (
-                <Text key={key} style={style}>{node}</Text>
+                <Text key={key} style={style} textBreakStrategy={'simple'}>{node}</Text>
             );
         }
     }
@@ -193,7 +193,7 @@ class Markdown extends Component {
         }
         else if (Utils.isTextOnly(nodes)) {
             return (
-                <Text key={`block_text_` + key} style={styles.block}>{nodes}</Text>
+                <Text key={`block_text_` + key} style={styles.block} textBreakStrategy={'simple'}>{nodes}</Text>
             );
         }
         else {
